@@ -268,19 +268,19 @@ function calculateTax() {
     }
 
     else if (income <= 400000) {
-        tax = (income - 250000) * 0.15;
+        tax = (income - 250000) * 0.20;
     }
 
     else if (income <= 800000) {
-        tax = 22500 + (income - 400000) * 0.20;
+        tax = 22500 + (income - 400000) * 0.25;
     }
 
     else if (income <= 2000000) {
-        tax = 102500 + (income - 800000) * 0.25;
+        tax = 102500 + (income - 800000) * 0.30;
     }
 
     else if (income <= 8000000) {
-        tax = 402500 + (income - 2000000) * 0.30;
+        tax = 402500 + (income - 2000000) * 0.32;
     }
 
     else {
