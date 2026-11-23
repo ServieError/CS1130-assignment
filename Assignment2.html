@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment #2 - Income Tax Calculator</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f6f4;
+    color: #24332c;
+}
+
+header, footer {
+    background: #205f49;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background: #174936;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+}
+
+main {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+button {
+    background: #205f49;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+}
+
+.result {
+    background: #e8f2ed;
+    padding: 15px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: #205f49;
+    color: white;
+}
+
+@media(max-width:600px) {
+    nav a { display: inline-block; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Assignment #2 - Income Tax Calculator</h1>
+    <p>ITC Assignments</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="assignment1.html">Assignment #1</a>
+    <a href="assignment2.html">Assignment #2</a>
+    <a href="assignment3.html">Assignment #3</a>
+    <a href="assignment4.html">Assignment #4</a>
+</nav>
+
+<main>
+
+<div class="card">
+
+    <h2>Income Tax Calculator</h2>
+
+    <label>Net Taxable Income (₱)</label>
+
+    <input type="number" id="income"
+           min="0" step="0.01"
+           placeholder="Enter taxable income">
+
+    <button onclick="calculateTax()">Calculate Income Tax</button>
+
+    <div class="result" id="taxResult">
+        Your income tax will appear here.
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2>Income Tax Table</h2>
+
+    <div class="table-wrap">
+    <table>
+
+        <tr>
+            <th>Net Taxable Income</th>
+            <th>Income Tax</th>
+        </tr>
+
+        <tr>
+            <td>₱250,000 and below</td>
+            <td>0%</td>
+        </tr>
+
+        <tr>
+            <td>Over ₱250,000 but not over ₱400,000</td>
+            <td>20% of excess over ₱250,000</td>
+        </tr>
+
+        <tr>
+            <td>Over ₱400,000 but not over ₱800,000</td>
+            <td>₱30,000 + 25% of excess over ₱400,000</td>
+        </tr>
+
+        <tr>
+            <td>Over ₱800,000 but not over ₱2,000,000</td>
+            <td>₱130,000 + 30% of excess over ₱800,000</td>
+        </tr>
+
+        <tr>
+            <td>Over ₱2,000,000 but not over ₱8,000,000</td>
+            <td>₱490,000 + 32% of excess over ₱2,000,000</td>
+        </tr>
+
+        <tr>
+            <td>Over ₱8,000,000</td>
+            <td>₱2,410,000 + 35% of excess over ₱8,000,000</td>
+        </tr>
+
+    </table>
+    </div>
+
+</div>
+
+</main>
+
+<footer>ITC Assignments</footer>
+
+<script>
+
+function calculateTax() {
+
+    const raw = document.getElementById("income").value;
+    const income = Number(raw);
+    const box = document.getElementById("taxResult");
+
+    if (raw.trim() === "" || !Number.isFinite(income) || income < 0) {
+        box.textContent = "Please enter a valid taxable income.";
+        return;
+    }
+
+    let tax;
+
+    if (income <= 250000) {
+        tax = 0;
+    }
+    else if (income <= 400000) {
+        tax = (income - 250000) * 0.20;
+    }
+    else if (income <= 800000) {
+        tax = 30000 + (income - 400000) * 0.25;
+    }
+    else if (income <= 2000000) {
+        tax = 130000 + (income - 800000) * 0.30;
+    }
+    else if (income <= 8000000) {
+        tax = 490000 + (income - 2000000) * 0.32;
+    }
+    else {
+        tax = 2410000 + (income - 8000000) * 0.35;
+    }
+
+    const money = n => "₱" + n.toLocaleString("en-PH", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+
+    box.textContent =
+        `Taxable Income: ${money(income)} | Income Tax: ${money(tax)}`;
+}
+
+</script>
+
+</body>
+</html>
