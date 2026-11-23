@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment #3 - Looping</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f6f4;
+    color: #24332c;
+}
+
+header, footer {
+    background: #205f49;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background: #174936;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+}
+
+main {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+button {
+    background: #205f49;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.result {
+    background: #e8f2ed;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+@media(max-width:600px) {
+    nav a { display: inline-block; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Assignment #3 - Looping</h1>
+    <p>ITC Assignments</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="assignment1.html">Assignment #1</a>
+    <a href="assignment2.html">Assignment #2</a>
+    <a href="assignment3.html">Assignment #3</a>
+    <a href="assignment4.html">Assignment #4</a>
+</nav>
+
+<main>
+
+<div class="card">
+
+<h2>Factorial, Sum and Average</h2>
+
+<div class="grid">
+
+    <div>
+        <h3>Factorial (While Loop)</h3>
+
+        <label>Enter a number:</label>
+        <input type="number" id="nFact" min="0" step="1">
+
+        <button onclick="factorial()">Calculate</button>
+
+        <div class="result" id="factResult">
+            Result will appear here.
+        </div>
+    </div>
+
+    <div>
+        <h3>Sum (Do While Loop)</h3>
+
+        <label>Enter N:</label>
+        <input type="number" id="nSum" min="1" step="1">
+
+        <button onclick="sumNumbers()">Calculate</button>
+
+        <div class="result" id="sumResult">
+            Result will appear here.
+        </div>
+    </div>
+
+    <div>
+        <h3>Average (For Loop)</h3>
+
+        <label>Enter N:</label>
+        <input type="number" id="nAvg" min="1" step="1">
+
+        <button onclick="averageNumbers()">Calculate</button>
+
+        <div class="result" id="avgResult">
+            Result will appear here.
+        </div>
+    </div>
+
+</div>
+</div>
+
+</main>
+
+<footer>ITC Assignments</footer>
+
+<script>
+
+function getN(id, min) {
+
+    const raw = document.getElementById(id).value;
+    const n = Number(raw);
+
+    if (raw.trim() === "" ||
+        !Number.isSafeInteger(n) ||
+        n < min) {
+        return null;
+    }
+
+    return n;
+}
+
+
+function factorial() {
+
+    const n = getN("nFact", 0);
+    const result = document.getElementById("factResult");
+
+    if (n === null || n > 170) {
+        result.textContent = "Enter a whole number from 0 to 170.";
+        return;
+    }
+
+    let answer = 1;
+    let i = 1;
+
+    while (i <= n) {
+        answer = answer * i;
+        i++;
+    }
+
+    result.textContent = `${n}! = ${answer}`;
+}
+
+
+function sumNumbers() {
+
+    const n = getN("nSum", 1);
+    const result = document.getElementById("sumResult");
+
+    if (n === null || n > 1000000) {
+        result.textContent = "Enter a positive whole number.";
+        return;
+    }
+
+    let sum = 0;
+    let i = 1;
+
+    do {
+        sum = sum + i;
+        i++;
+    }
+    while (i <= n);
+
+    result.textContent =
+        `Sum of the first ${n} natural numbers = ${sum}`;
+}
+
+
+function averageNumbers() {
+
+    const n = getN("nAvg", 1);
+    const result = document.getElementById("avgResult");
+
+    if (n === null || n > 1000000) {
+        result.textContent = "Enter a positive whole number.";
+        return;
+    }
+
+    let sum = 0;
+
+    for (let i = 1; i <= n; i++) {
+        sum = sum + i;
+    }
+
+    let average = sum / n;
+
+    result.textContent =
+        `Average of the first ${n} natural numbers = ${average.toFixed(2)}`;
+}
+
+</script>
+
+</body>
+</html>
