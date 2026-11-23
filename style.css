@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f6f4;
+    color: #24332c;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #205f49;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 17px;
+}
+
+
+nav {
+    background-color: #174936;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 12px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #a8d5bd;
+    text-decoration: underline;
+}
+
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    color: #205f49;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #174936;
+    margin-bottom: 12px;
+}
+
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd7cf;
+    border-radius: 7px;
+    font-size: 15px;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    border-color: #205f49;
+    box-shadow: 0 0 5px rgba(32, 95, 73, 0.3);
+}
+
+button,
+.button {
+    display: inline-block;
+    background-color: #205f49;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button:hover,
+.button:hover {
+    background-color: #174936;
+    transform: translateY(-2px);
+}
+
+.danger {
+    background-color: #b83b3b;
+}
+
+.danger:hover {
+    background-color: #8f2929;
+}
+
+.result {
+    background-color: #e8f2ed;
+    color: #174936;
+    padding: 15px;
+    margin-top: 15px;
+    border-left: 5px solid #205f49;
+    border-radius: 6px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background-color: #205f49;
+    color: white;
+    padding: 13px;
+}
+
+td {
+    padding: 12px;
+    border: 1px solid #d4ded7;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f5f1;
+}
+
+
+.hero {
+    min-height: 100vh;
+    background-color: #205f49;
+    color: white;
+    text-align: center;
+    padding: 70px 7%;
+}
+
+.hero .itc {
+    font-size: 65px;
+    margin-bottom: 45px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 75px);
+    margin-bottom: 45px;
+}
+
+.hero h2 {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    max-width: 780px;
+    margin: 0 auto 35px;
+    font-size: 20px;
+    line-height: 1.65;
+}
+
+.hero .button {
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 15px 30px;
+    margin-bottom: 20px;
+}
+
+.hero .button:hover {
+    background-color: white;
+    color: #205f49;
+}
+
+.linklist a {
+    display: block;
+    color: white;
+    font-size: 20px;
+    margin: 25px 0;
+    text-decoration: underline;
+}
+
+.linklist a:hover {
+    color: #a8d5bd;
+}
+
+footer {
+    background-color: #174936;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 50px 6%;
+    }
+
+    .hero .itc {
+        font-size: 50px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .linklist a {
+        font-size: 17px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+}
