@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment #1 - Conversion</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f6f4;
+    color: #24332c;
+}
+
+header, footer {
+    background: #205f49;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background: #174936;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+}
+
+main {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+}
+
+button {
+    background: #205f49;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.result {
+    background: #e8f2ed;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+@media(max-width:600px) {
+    nav a { display: inline-block; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Assignment #1 - Conversion</h1>
+    <p>ITC Assignments</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="assignment1.html">Assignment #1</a>
+    <a href="assignment2.html">Assignment #2</a>
+    <a href="assignment3.html">Assignment #3</a>
+    <a href="assignment4.html">Assignment #4</a>
+</nav>
+
+<main>
+<div class="card">
+
+<h2>Conversion Calculator</h2>
+
+<div class="grid">
+
+    <div>
+        <h3>Celsius to Fahrenheit</h3>
+        <input type="number" id="c" placeholder="Enter Celsius">
+        <button onclick="convertC()">Convert</button>
+        <div class="result" id="cr">Result will appear here.</div>
+    </div>
+
+    <div>
+        <h3>Fahrenheit to Celsius</h3>
+        <input type="number" id="f" placeholder="Enter Fahrenheit">
+        <button onclick="convertF()">Convert</button>
+        <div class="result" id="fr">Result will appear here.</div>
+    </div>
+
+    <div>
+        <h3>Meters to Feet</h3>
+        <input type="number" id="m" placeholder="Enter meters">
+        <button onclick="convertM()">Convert</button>
+        <div class="result" id="mr">Result will appear here.</div>
+    </div>
+
+    <div>
+        <h3>Feet to Meters</h3>
+        <input type="number" id="ft" placeholder="Enter feet">
+        <button onclick="convertFt()">Convert</button>
+        <div class="result" id="ftr">Result will appear here.</div>
+    </div>
+
+</div>
+</div>
+</main>
+
+<footer>ITC Assignments</footer>
+
+<script>
+
+function val(id) {
+    let x = document.getElementById(id).value;
+    return x.trim() === "" ? null : Number(x);
+}
+
+function out(id, msg) {
+    document.getElementById(id).textContent = msg;
+}
+
+function convertC() {
+    let x = val("c");
+
+    out("cr", x === null || !Number.isFinite(x)
+        ? "Enter a valid number."
+        : `${x} °C = ${(x * 9 / 5 + 32).toFixed(2)} °F`);
+}
+
+function convertF() {
+    let x = val("f");
+
+    out("fr", x === null || !Number.isFinite(x)
+        ? "Enter a valid number."
+        : `${x} °F = ${((x - 32) * 5 / 9).toFixed(2)} °C`);
+}
+
+function convertM() {
+    let x = val("m");
+
+    out("mr", x === null || !Number.isFinite(x)
+        ? "Enter a valid number."
+        : `${x} meters = ${(x * 3.28084).toFixed(2)} feet`);
+}
+
+function convertFt() {
+    let x = val("ft");
+
+    out("ftr", x === null || !Number.isFinite(x)
+        ? "Enter a valid number."
+        : `${x} feet = ${(x / 3.28084).toFixed(2)} meters`);
+}
+
+</script>
+
+</body>
+</html>
