@@ -2,632 +2,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS 1130 - Introduction to Computing</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITC Assignments - V-Calc</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f2f4f8;
-            color: #222;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #205f49;
+    color: white;
+}
 
-        header {
-            background: #172554;
-            color: white;
-            text-align: center;
-            padding: 30px 15px;
-        }
+.hero {
+    text-align: center;
+    padding: 60px 7%;
+    min-height: 100vh;
+    background: #205f49;
+}
 
-        header h1 {
-            margin: 0 0 10px;
-        }
+.itc {
+    font-size: 65px;
+    margin-bottom: 50px;
+}
 
-        nav {
-            background: #1e3a8a;
-            padding: 12px;
-            text-align: center;
-        }
+h1 {
+    font-size: clamp(45px, 8vw, 75px);
+    margin: 0 0 45px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 8px 12px;
-            display: inline-block;
-            font-weight: bold;
-        }
+h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
 
-        nav a:hover {
-            color: #facc15;
-        }
+p {
+    font-size: 20px;
+    line-height: 1.65;
+    max-width: 780px;
+    margin: 0 auto 35px;
+}
 
-        main {
-            max-width: 1000px;
-            margin: 25px auto;
-            padding: 0 15px;
-        }
+.button {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 16px 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
-        section {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
+.button:hover {
+    background: white;
+    color: #205f49;
+}
 
-        h2 {
-            color: #1e3a8a;
-            border-bottom: 2px solid #dbeafe;
-            padding-bottom: 10px;
-        }
+.linklist a {
+    display: block;
+    color: white;
+    font-size: 20px;
+    margin: 25px 0;
+    text-decoration: underline;
+}
 
-        h3 {
-            color: #334155;
-        }
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #174936;
+}
 
-        input {
-            width: 100%;
-            padding: 11px;
-            margin: 7px 0 15px;
-            border: 1px solid #cbd5e1;
-            border-radius: 5px;
-            font-size: 15px;
-        }
+@media(max-width: 600px) {
+    .hero {
+        padding: 50px 6%;
+    }
 
-        button {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 11px 18px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px 3px;
-            font-size: 14px;
-        }
+    .itc {
+        font-size: 50px;
+    }
 
-        button:hover {
-            background: #1d4ed8;
-        }
+    p {
+        font-size: 16px;
+    }
 
-        .delete-btn {
-            background: #dc2626;
-        }
-
-        .delete-btn:hover {
-            background: #b91c1c;
-        }
-
-        .result {
-            background: #eff6ff;
-            padding: 12px;
-            margin-top: 12px;
-            border-radius: 5px;
-            font-weight: bold;
-            color: #1e40af;
-        }
-
-        .calculator-box {
-            border: 1px solid #e2e8f0;
-            padding: 18px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            min-width: 700px;
-        }
-
-        th, td {
-            border: 1px solid #cbd5e1;
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background: #1e3a8a;
-            color: white;
-        }
-
-        .table-container {
-            overflow-x: auto;
-        }
-
-        footer {
-            background: #172554;
-            color: white;
-            text-align: center;
-            padding: 18px;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 600px) {
-            section {
-                padding: 17px;
-            }
-
-            header h1 {
-                font-size: 23px;
-            }
-
-            nav a {
-                margin: 6px;
-                font-size: 14px;
-            }
-        }
-    </style>
+    .linklist a {
+        font-size: 17px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>CS 1130 - Introduction to Computing</h1>
-    <p>Web Programming Assignments</p>
-    <p>HTML, CSS, and JavaScript</p>
-</header>
+<section class="hero">
 
-<nav>
-    <a href="#conversion">Conversion</a>
-    <a href="#tax">Income Tax</a>
-    <a href="#loops">Looping</a>
-    <a href="#payroll">Payroll</a>
-</nav>
+    <div class="itc">ITC</div>
 
-<main>
-    <section id="conversion">
-        <h2>Conversion</h2>
+    <h1>Assignments</h1>
 
-        <div class="calculator-box">
-            <h3>Celsius to Fahrenheit</h3>
+    <h2>I am V-Calc</h2>
 
-            <label for="celsius">Temperature in Celsius:</label>
-            <input type="number" id="celsius" placeholder="Enter Celsius">
+    <p>
+        This website showcases a collection of interactive
+        web programming assignments covering unit conversions
+        (temperature and length), an income tax calculator,
+        loop-based mathematical computations (factorial, sum,
+        and average), and a simple payroll system. Built using
+        fundamental HTML, CSS, and JavaScript, these tools
+        demonstrate practical user interaction and real-time
+        calculations.
+    </p>
 
-            <button onclick="celsiusToFahrenheit()">Convert to Fahrenheit</button>
+    <a href="#my-work" class="button">VIEW MY WORK</a>
 
-            <div class="result" id="celsiusResult">Result will appear here.</div>
-        </div>
+    <div class="linklist" id="my-work">
 
-        <div class="calculator-box">
-            <h3>Fahrenheit to Celsius</h3>
+        <a href="assignment1.html">
+            Assignment #1 - Conversion
+        </a>
 
-            <label for="fahrenheit">Temperature in Fahrenheit:</label>
-            <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
+        <a href="assignment2.html">
+            Assignment #2 - Income Tax Calculator
+        </a>
 
-            <button onclick="fahrenheitToCelsius()">Convert to Celsius</button>
+        <a href="assignment3.html">
+            Assignment #3 - Factorial, Sum and Average
+        </a>
 
-            <div class="result" id="fahrenheitResult">Result will appear here.</div>
-        </div>
+        <a href="assignment4.html">
+            Assignment #4 - Simple Payroll
+        </a>
 
-        <div class="calculator-box">
-            <h3>Meters to Feet</h3>
+    </div>
 
-            <label for="meters">Distance in Meters:</label>
-            <input type="number" id="meters" placeholder="Enter meters">
-
-            <button onclick="metersToFeet()">Convert to Feet</button>
-
-            <div class="result" id="metersResult">Result will appear here.</div>
-        </div>
-
-        <div class="calculator-box">
-            <h3>Feet to Meters</h3>
-
-            <label for="feet">Distance in Feet:</label>
-            <input type="number" id="feet" placeholder="Enter feet">
-
-            <button onclick="feetToMeters()">Convert to Meters</button>
-
-            <div class="result" id="feetResult">Result will appear here.</div>
-        </div>
-    </section>
-
-    <section id="tax">
-        <h2>Income Tax Calculator</h2>
-
-        <label for="taxableIncome">Enter Taxable Income (₱):</label>
-        <input type="number" id="taxableIncome" placeholder="Enter taxable income" min="0">
-
-        <button onclick="calculateTax()">Calculate Income Tax</button>
-
-        <div class="result" id="taxResult">Your income tax will appear here.</div>
-
-        <h3>Income Tax Table</h3>
-
-        <div class="table-container">
-            <table>
-                <tr>
-                    <th>Taxable Income</th>
-                    <th>Income Tax</th>
-                </tr>
-                <tr>
-                    <td>₱250,000 and below</td>
-                    <td>0%</td>
-                </tr>
-                <tr>
-                    <td>Over ₱250,000 - ₱400,000</td>
-                    <td>20% of excess over ₱250,000</td>
-                </tr>
-                <tr>
-                    <td>Over ₱400,000 - ₱800,000</td>
-                    <td>₱30,000 + 25% of excess over ₱400,000</td>
-                </tr>
-                <tr>
-                    <td>Over ₱800,000 - ₱2,000,000</td>
-                    <td>₱130,000 + 30% of excess over ₱800,000</td>
-                </tr>
-                <tr>
-                    <td>Over ₱2,000,000 - ₱8,000,000</td>
-                    <td>₱490,000 + 32% of excess over ₱2,000,000</td>
-                </tr>
-                <tr>
-                    <td>Over ₱8,000,000</td>
-                    <td>₱2,410,000 + 35% of excess over ₱8,000,000</td>
-                </tr>
-            </table>
-        </div>
-    </section>
-
-    <section id="loops">
-        <h2>Factorial, Sum, and Average</h2>
-
-        <div class="calculator-box">
-            <h3>Factorial (While Loop)</h3>
-
-            <label for="factorialNumber">Enter a Number:</label>
-            <input type="number" id="factorialNumber" placeholder="Enter a whole number" min="0">
-
-            <button onclick="calculateFactorial()">Calculate Factorial</button>
-
-            <div class="result" id="factorialResult">Result will appear here.</div>
-        </div>
-
-        <div class="calculator-box">
-            <h3>Sum (Do While Loop)</h3>
-
-            <label for="sumNumber">Enter N:</label>
-            <input type="number" id="sumNumber" placeholder="Enter a positive number" min="1">
-
-            <button onclick="calculateSum()">Calculate Sum</button>
-
-            <div class="result" id="sumResult">Result will appear here.</div>
-        </div>
-
-        <div class="calculator-box">
-            <h3>Average (For Loop)</h3>
-
-            <label for="averageNumber">Enter N:</label>
-            <input type="number" id="averageNumber" placeholder="Enter a positive number" min="1">
-
-            <button onclick="calculateAverage()">Calculate Average</button>
-
-            <div class="result" id="averageResult">Result will appear here.</div>
-        </div>
-    </section>
-
-
-    <section id="payroll">
-        <h2>Simple Payroll</h2>
-
-        <div class="calculator-box">
-            <h3>Employee Information</h3>
-
-            <label for="employeeName">Employee Name:</label>
-            <input type="text" id="employeeName" placeholder="Enter employee name">
-
-            <label for="daysWorked">Days Worked:</label>
-            <input type="number" id="daysWorked" placeholder="Enter days worked" min="0">
-
-            <label for="dailyRate">Daily Rate (₱):</label>
-            <input type="number" id="dailyRate" placeholder="Enter daily rate" min="0">
-
-            <label for="deduction">Deduction Amount (₱):</label>
-            <input type="number" id="deduction" placeholder="Enter deduction amount" min="0">
-
-            <button onclick="addEmployee()">Add Employee</button>
-            <button class="delete-btn" onclick="deleteEmployee()">Delete Employee</button>
-        </div>
-
-        <h3>Payroll List</h3>
-
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Employee Name</th>
-                        <th>Days Worked</th>
-                        <th>Daily Rate</th>
-                        <th>Gross Pay</th>
-                        <th>Deduction Amount</th>
-                        <th>Net Pay</th>
-                    </tr>
-                </thead>
-
-                <tbody id="payrollTable">
-                    <tr>
-                        <td colspan="7">No employees added yet.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-</main>
+</section>
 
 <footer>
-    <p>CS 1130 - Introduction to Computing</p>
-    <p>HTML | CSS | JavaScript</p>
+    ITC Assignments | V-Calc
 </footer>
-
-
-<script>
-
-
-    function celsiusToFahrenheit() {
-        let celsius = parseFloat(document.getElementById("celsius").value);
-
-        if (isNaN(celsius)) {
-            document.getElementById("celsiusResult").innerHTML = "Please enter a temperature.";
-            return;
-        }
-
-        let fahrenheit = (celsius * 9 / 5) + 32;
-
-        document.getElementById("celsiusResult").innerHTML =
-            celsius + "°C = " + fahrenheit.toFixed(2) + "°F";
-    }
-
-    function fahrenheitToCelsius() {
-        let fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
-
-        if (isNaN(fahrenheit)) {
-            document.getElementById("fahrenheitResult").innerHTML = "Please enter a temperature.";
-            return;
-        }
-
-        let celsius = (fahrenheit - 32) * 5 / 9;
-
-        document.getElementById("fahrenheitResult").innerHTML =
-            fahrenheit + "°F = " + celsius.toFixed(2) + "°C";
-    }
-
-    function metersToFeet() {
-        let meters = parseFloat(document.getElementById("meters").value);
-
-        if (isNaN(meters)) {
-            document.getElementById("metersResult").innerHTML = "Please enter a distance.";
-            return;
-        }
-
-        let feet = meters * 3.28084;
-
-        document.getElementById("metersResult").innerHTML =
-            meters + " meters = " + feet.toFixed(2) + " feet";
-    }
-
-    function feetToMeters() {
-        let feet = parseFloat(document.getElementById("feet").value);
-
-        if (isNaN(feet)) {
-            document.getElementById("feetResult").innerHTML = "Please enter a distance.";
-            return;
-        }
-
-        let meters = feet / 3.28084;
-
-        document.getElementById("feetResult").innerHTML =
-            feet + " feet = " + meters.toFixed(2) + " meters";
-    }
-
-
-    function calculateTax() {
-        let income = parseFloat(document.getElementById("taxableIncome").value);
-        let tax = 0;
-
-        if (isNaN(income) || income < 0) {
-            document.getElementById("taxResult").innerHTML =
-                "Please enter a valid taxable income.";
-            return;
-        }
-
-        if (income <= 250000) {
-            tax = 0;
-        }
-        else if (income <= 400000) {
-            tax = (income - 250000) * 0.20;
-        }
-        else if (income <= 800000) {
-            tax = 30000 + (income - 400000) * 0.25;
-        }
-        else if (income <= 2000000) {
-            tax = 130000 + (income - 800000) * 0.30;
-        }
-        else if (income <= 8000000) {
-            tax = 490000 + (income - 2000000) * 0.32;
-        }
-        else {
-            tax = 2410000 + (income - 8000000) * 0.35;
-        }
-
-        document.getElementById("taxResult").innerHTML =
-            "Taxable Income: ₱" + income.toLocaleString("en-PH", {minimumFractionDigits: 2, maximumFractionDigits: 2}) +
-            "<br>Income Tax: ₱" + tax.toLocaleString("en-PH", {minimumFractionDigits: 2, maximumFractionDigits: 2});
-    }
-
-
-    function calculateFactorial() {
-        let n = Number(document.getElementById("factorialNumber").value);
-
-        if (document.getElementById("factorialNumber").value === "" ||
-            !Number.isInteger(n) || n < 0) {
-            document.getElementById("factorialResult").innerHTML =
-                "Please enter a non-negative whole number.";
-            return;
-        }
-
-        let factorial = 1;
-        let i = 1;
-
-        while (i <= n) {
-            factorial = factorial * i;
-            i++;
-        }
-
-        document.getElementById("factorialResult").innerHTML =
-            n + "! = " + factorial;
-    }
-
-    function calculateSum() {
-        let n = Number(document.getElementById("sumNumber").value);
-
-        if (document.getElementById("sumNumber").value === "" ||
-            !Number.isInteger(n) || n < 1) {
-            document.getElementById("sumResult").innerHTML =
-                "Please enter a positive whole number.";
-            return;
-        }
-
-        let sum = 0;
-        let i = 1;
-
-        do {
-            sum = sum + i;
-            i++;
-        } while (i <= n);
-
-        document.getElementById("sumResult").innerHTML =
-            "Sum of first " + n + " natural numbers = " + sum;
-    }
-
-
-    function calculateAverage() {
-        let n = Number(document.getElementById("averageNumber").value);
-
-        if (document.getElementById("averageNumber").value === "" ||
-            !Number.isInteger(n) || n < 1) {
-            document.getElementById("averageResult").innerHTML =
-                "Please enter a positive whole number.";
-            return;
-        }
-
-        let sum = 0;
-
-        for (let i = 1; i <= n; i++) {
-            sum = sum + i;
-        }
-
-        let average = sum / n;
-
-        document.getElementById("averageResult").innerHTML =
-            "Average of first " + n + " natural numbers = " + average.toFixed(2);
-    }
-
-
-    let employees = [];
-
-    function addEmployee() {
-        let name = document.getElementById("employeeName").value.trim();
-        let days = Number(document.getElementById("daysWorked").value);
-        let rate = Number(document.getElementById("dailyRate").value);
-        let deduction = Number(document.getElementById("deduction").value);
-
-        if (name === "" ||
-            document.getElementById("daysWorked").value === "" ||
-            document.getElementById("dailyRate").value === "" ||
-            document.getElementById("deduction").value === "" ||
-            !Number.isFinite(days) ||
-            !Number.isFinite(rate) ||
-            !Number.isFinite(deduction) ||
-            days < 0 || rate < 0 || deduction < 0) {
-
-            alert("Please enter valid employee information.");
-            return;
-        }
-
-        let grossPay = days * rate;
-        let netPay = grossPay - deduction;
-
-        if (netPay < 0) {
-            alert("Deduction cannot be greater than gross pay.");
-            return;
-        }
-
-        let employee = {
-            name: name,
-            days: days,
-            rate: rate,
-            gross: grossPay,
-            deduction: deduction,
-            net: netPay
-        };
-
-        employees.push(employee);
-
-        displayPayroll();
-
-        document.getElementById("employeeName").value = "";
-        document.getElementById("daysWorked").value = "";
-        document.getElementById("dailyRate").value = "";
-        document.getElementById("deduction").value = "";
-    }
-
-    function displayPayroll() {
-        let table = document.getElementById("payrollTable");
-
-        table.innerHTML = "";
-
-        if (employees.length === 0) {
-            table.innerHTML =
-                '<tr><td colspan="7">No employees added yet.</td></tr>';
-            return;
-        }
-
-        for (let i = 0; i < employees.length; i++) {
-            let employee = employees[i];
-
-            let row = table.insertRow();
-
-            row.insertCell(0).innerHTML = i + 1;
-            row.insertCell(1).innerHTML = employee.name;
-            row.insertCell(2).innerHTML = employee.days;
-            row.insertCell(3).innerHTML = "₱" + employee.rate.toFixed(2);
-            row.insertCell(4).innerHTML = "₱" + employee.gross.toFixed(2);
-            row.insertCell(5).innerHTML = "₱" + employee.deduction.toFixed(2);
-            row.insertCell(6).innerHTML = "₱" + employee.net.toFixed(2);
-        }
-    }
-
-
-    function deleteEmployee() {
-        if (employees.length === 0) {
-            alert("The payroll list is empty.");
-            return;
-        }
-
-        let line = Number(prompt("Enter the employee line number to delete:"));
-
-        if (!Number.isInteger(line) || line < 1 || line > employees.length) {
-            alert("Invalid line number.");
-            return;
-        }
-
-        employees.splice(line - 1, 1);
-
-        displayPayroll();
-
-        alert("Employee successfully deleted.");
-    }
-
-</script>
 
 </body>
 </html>
