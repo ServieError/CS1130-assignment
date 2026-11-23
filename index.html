@@ -2,402 +2,630 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CS 1130 Computing Lab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS 1130 - Introduction to Computing</title>
 
-<style>
-* {
-    box-sizing: border-box;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #17243a;
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f2f4f8;
+            color: #222;
+        }
 
-header {
-    background: #102344;
-    color: white;
-    padding: 35px 20px;
-    text-align: center;
-}
+        header {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
 
-header h1 {
-    margin: 0;
-    font-size: 35px;
-}
+        header h1 {
+            margin: 0 0 10px;
+        }
 
-nav {
-    background: white;
-    padding: 15px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-}
+        nav {
+            background: #1e3a8a;
+            padding: 12px;
+            text-align: center;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #2457d6;
-    margin: 12px;
-    font-weight: bold;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 8px 12px;
+            display: inline-block;
+            font-weight: bold;
+        }
 
-main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 15px;
-}
+        nav a:hover {
+            color: #facc15;
+        }
 
-.card {
-    background: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px #00000010;
-}
+        main {
+            max-width: 1000px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
 
-h2 {
-    color: #2457d6;
-}
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
 
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
+        h2 {
+            color: #1e3a8a;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 10px;
+        }
 
-button {
-    background: #2457d6;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-}
+        h3 {
+            color: #334155;
+        }
 
-button:hover {
-    background: #102344;
-}
+        input {
+            width: 100%;
+            padding: 11px;
+            margin: 7px 0 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            font-size: 15px;
+        }
 
-.result {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #087f5b;
-}
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 3px;
+            font-size: 14px;
+        }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    color: gray;
-}
+        button:hover {
+            background: #1d4ed8;
+        }
 
-@media(max-width:600px) {
-    nav a {
-        display: inline-block;
-        margin: 7px;
-    }
+        .delete-btn {
+            background: #dc2626;
+        }
 
-    header h1 {
-        font-size: 26px;
-    }
-}
-</style>
+        .delete-btn:hover {
+            background: #b91c1c;
+        }
+
+        .result {
+            background: #eff6ff;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #1e40af;
+        }
+
+        .calculator-box {
+            border: 1px solid #e2e8f0;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            min-width: 700px;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 17px;
+            }
+
+            header h1 {
+                font-size: 23px;
+            }
+
+            nav a {
+                margin: 6px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-    <h1>CS 1130 - Computing Lab</h1>
-    <p>Introduction to Computing</p>
-    <p>HTML, CSS and JavaScript Programming</p>
+    <h1>CS 1130 - Introduction to Computing</h1>
+    <p>Web Programming Assignments</p>
+    <p>HTML, CSS, and JavaScript</p>
 </header>
 
 <nav>
     <a href="#conversion">Conversion</a>
     <a href="#tax">Income Tax</a>
-    <a href="#looping">Looping</a>
+    <a href="#loops">Looping</a>
     <a href="#payroll">Payroll</a>
 </nav>
 
 <main>
+    <section id="conversion">
+        <h2>Assignment #1 - Conversion</h2>
 
-<div class="card" id="conversion">
-    <h2>Conversion</h2>
+        <div class="calculator-box">
+            <h3>Celsius to Fahrenheit</h3>
 
-    <label>Choose Conversion:</label>
-    <select id="conversionType">
-        <option value="ctf">Celsius to Fahrenheit</option>
-        <option value="ftc">Fahrenheit to Celsius</option>
-        <option value="mtf">Meters to Feet</option>
-        <option value="ftm">Feet to Meters</option>
-    </select>
+            <label for="celsius">Temperature in Celsius:</label>
+            <input type="number" id="celsius" placeholder="Enter Celsius">
 
-    <label>Enter Value:</label>
-    <input type="number" id="conversionValue">
+            <button onclick="celsiusToFahrenheit()">Convert to Fahrenheit</button>
 
-    <button onclick="convert()">Convert</button>
+            <div class="result" id="celsiusResult">Result will appear here.</div>
+        </div>
 
-    <p class="result" id="conversionResult"></p>
-</div>
+        <div class="calculator-box">
+            <h3>Fahrenheit to Celsius</h3>
 
-<div class="card" id="tax">
-    <h2>Income Tax Calculator</h2>
+            <label for="fahrenheit">Temperature in Fahrenheit:</label>
+            <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">
 
-    <label>Annual Taxable Income (₱):</label>
-    <input type="number" id="income">
+            <button onclick="fahrenheitToCelsius()">Convert to Celsius</button>
 
-    <button onclick="calculateTax()">Calculate Tax</button>
+            <div class="result" id="fahrenheitResult">Result will appear here.</div>
+        </div>
 
-    <p class="result" id="taxResult"></p>
-</div>
+        <div class="calculator-box">
+            <h3>Meters to Feet</h3>
 
-<div class="card" id="looping">
-    <h2>Looping</h2>
+            <label for="meters">Distance in Meters:</label>
+            <input type="number" id="meters" placeholder="Enter meters">
 
-    <h3>1. Factorial (While Loop)</h3>
-    <input type="number" id="factorialNumber" placeholder="Enter N">
-    <button onclick="factorial()">Calculate Factorial</button>
-    <p class="result" id="factorialResult"></p>
+            <button onclick="metersToFeet()">Convert to Feet</button>
 
-    <hr>
+            <div class="result" id="metersResult">Result will appear here.</div>
+        </div>
 
-    <h3>2. Sum (Do While Loop)</h3>
-    <input type="number" id="sumNumber" placeholder="Enter N">
-    <button onclick="sumNumbers()">Calculate Sum</button>
-    <p class="result" id="sumResult"></p>
+        <div class="calculator-box">
+            <h3>Feet to Meters</h3>
 
-    <hr>
+            <label for="feet">Distance in Feet:</label>
+            <input type="number" id="feet" placeholder="Enter feet">
 
-    <h3>3. Average (For Loop)</h3>
-    <input type="number" id="averageNumber" placeholder="Enter N">
-    <button onclick="averageNumbers()">Calculate Average</button>
-    <p class="result" id="averageResult"></p>
-</div>
+            <button onclick="feetToMeters()">Convert to Meters</button>
 
-<div class="card" id="payroll">
-    <h2>Simple Payroll</h2>
+            <div class="result" id="feetResult">Result will appear here.</div>
+        </div>
+    </section>
 
-    <label>Employee Name:</label>
-    <input type="text" id="employeeName">
+    <section id="tax">
+        <h2>Assignment #2 - Income Tax Calculator</h2>
 
-    <label>Hourly Rate (₱):</label>
-    <input type="number" id="hourlyRate">
+        <label for="taxableIncome">Enter Taxable Income (₱):</label>
+        <input type="number" id="taxableIncome" placeholder="Enter taxable income" min="0">
 
-    <label>Hours Worked:</label>
-    <input type="number" id="hoursWorked">
+        <button onclick="calculateTax()">Calculate Income Tax</button>
 
-    <label>Overtime Hours:</label>
-    <input type="number" id="overtimeHours">
+        <div class="result" id="taxResult">Your income tax will appear here.</div>
 
-    <label>Total Deductions (₱):</label>
-    <input type="number" id="deductions">
+        <h3>Income Tax Table</h3>
 
-    <button onclick="calculatePayroll()">Calculate Payroll</button>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Taxable Income</th>
+                    <th>Income Tax</th>
+                </tr>
+                <tr>
+                    <td>₱250,000 and below</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>Over ₱250,000 - ₱400,000</td>
+                    <td>20% of excess over ₱250,000</td>
+                </tr>
+                <tr>
+                    <td>Over ₱400,000 - ₱800,000</td>
+                    <td>₱30,000 + 25% of excess over ₱400,000</td>
+                </tr>
+                <tr>
+                    <td>Over ₱800,000 - ₱2,000,000</td>
+                    <td>₱130,000 + 30% of excess over ₱800,000</td>
+                </tr>
+                <tr>
+                    <td>Over ₱2,000,000 - ₱8,000,000</td>
+                    <td>₱490,000 + 32% of excess over ₱2,000,000</td>
+                </tr>
+                <tr>
+                    <td>Over ₱8,000,000</td>
+                    <td>₱2,410,000 + 35% of excess over ₱8,000,000</td>
+                </tr>
+            </table>
+        </div>
+    </section>
 
-    <p class="result" id="payrollResult"></p>
-</div>
+    <section id="loops">
+        <h2>Assignment #3 - Factorial, Sum, and Average</h2>
+
+        <div class="calculator-box">
+            <h3>Factorial (While Loop)</h3>
+
+            <label for="factorialNumber">Enter a Number:</label>
+            <input type="number" id="factorialNumber" placeholder="Enter a whole number" min="0">
+
+            <button onclick="calculateFactorial()">Calculate Factorial</button>
+
+            <div class="result" id="factorialResult">Result will appear here.</div>
+        </div>
+
+        <div class="calculator-box">
+            <h3>Sum (Do While Loop)</h3>
+
+            <label for="sumNumber">Enter N:</label>
+            <input type="number" id="sumNumber" placeholder="Enter a positive number" min="1">
+
+            <button onclick="calculateSum()">Calculate Sum</button>
+
+            <div class="result" id="sumResult">Result will appear here.</div>
+        </div>
+
+        <div class="calculator-box">
+            <h3>Average (For Loop)</h3>
+
+            <label for="averageNumber">Enter N:</label>
+            <input type="number" id="averageNumber" placeholder="Enter a positive number" min="1">
+
+            <button onclick="calculateAverage()">Calculate Average</button>
+
+            <div class="result" id="averageResult">Result will appear here.</div>
+        </div>
+    </section>
+
+
+    <section id="payroll">
+        <h2>Assignment #4 - Simple Payroll</h2>
+
+        <div class="calculator-box">
+            <h3>Employee Information</h3>
+
+            <label for="employeeName">Employee Name:</label>
+            <input type="text" id="employeeName" placeholder="Enter employee name">
+
+            <label for="daysWorked">Days Worked:</label>
+            <input type="number" id="daysWorked" placeholder="Enter days worked" min="0">
+
+            <label for="dailyRate">Daily Rate (₱):</label>
+            <input type="number" id="dailyRate" placeholder="Enter daily rate" min="0">
+
+            <label for="deduction">Deduction Amount (₱):</label>
+            <input type="number" id="deduction" placeholder="Enter deduction amount" min="0">
+
+            <button onclick="addEmployee()">Add Employee</button>
+            <button class="delete-btn" onclick="deleteEmployee()">Delete Employee</button>
+        </div>
+
+        <h3>Payroll List</h3>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Employee Name</th>
+                        <th>Days Worked</th>
+                        <th>Daily Rate</th>
+                        <th>Gross Pay</th>
+                        <th>Deduction Amount</th>
+                        <th>Net Pay</th>
+                    </tr>
+                </thead>
+
+                <tbody id="payrollTable">
+                    <tr>
+                        <td colspan="7">No employees added yet.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
 </main>
 
 <footer>
     <p>CS 1130 - Introduction to Computing</p>
-    <p>Student Web Project</p>
+    <p>HTML | CSS | JavaScript</p>
 </footer>
+
 
 <script>
 
 
-function convert() {
+    function celsiusToFahrenheit() {
+        let celsius = parseFloat(document.getElementById("celsius").value);
 
-    let type = document.getElementById("conversionType").value;
-    let value = document.getElementById("conversionValue").value;
+        if (isNaN(celsius)) {
+            document.getElementById("celsiusResult").innerHTML = "Please enter a temperature.";
+            return;
+        }
 
-    if (value === "") {
-        alert("Please enter a value.");
-        return;
+        let fahrenheit = (celsius * 9 / 5) + 32;
+
+        document.getElementById("celsiusResult").innerHTML =
+            celsius + "°C = " + fahrenheit.toFixed(2) + "°F";
     }
 
-    value = Number(value);
+    function fahrenheitToCelsius() {
+        let fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
 
-    let result;
+        if (isNaN(fahrenheit)) {
+            document.getElementById("fahrenheitResult").innerHTML = "Please enter a temperature.";
+            return;
+        }
 
-    if (type === "ctf") {
-        result = (value * 9/5) + 32;
-        result += " °F";
+        let celsius = (fahrenheit - 32) * 5 / 9;
+
+        document.getElementById("fahrenheitResult").innerHTML =
+            fahrenheit + "°F = " + celsius.toFixed(2) + "°C";
     }
 
-    else if (type === "ftc") {
-        result = (value - 32) * 5/9;
-        result += " °C";
+    function metersToFeet() {
+        let meters = parseFloat(document.getElementById("meters").value);
+
+        if (isNaN(meters)) {
+            document.getElementById("metersResult").innerHTML = "Please enter a distance.";
+            return;
+        }
+
+        let feet = meters * 3.28084;
+
+        document.getElementById("metersResult").innerHTML =
+            meters + " meters = " + feet.toFixed(2) + " feet";
     }
 
-    else if (type === "mtf") {
-        result = value * 3.28084;
-        result += " feet";
+    function feetToMeters() {
+        let feet = parseFloat(document.getElementById("feet").value);
+
+        if (isNaN(feet)) {
+            document.getElementById("feetResult").innerHTML = "Please enter a distance.";
+            return;
+        }
+
+        let meters = feet / 3.28084;
+
+        document.getElementById("feetResult").innerHTML =
+            feet + " feet = " + meters.toFixed(2) + " meters";
     }
 
-    else {
-        result = value / 3.28084;
-        result += " meters";
+
+    function calculateTax() {
+        let income = parseFloat(document.getElementById("taxableIncome").value);
+        let tax = 0;
+
+        if (isNaN(income) || income < 0) {
+            document.getElementById("taxResult").innerHTML =
+                "Please enter a valid taxable income.";
+            return;
+        }
+
+        if (income <= 250000) {
+            tax = 0;
+        }
+        else if (income <= 400000) {
+            tax = (income - 250000) * 0.20;
+        }
+        else if (income <= 800000) {
+            tax = 30000 + (income - 400000) * 0.25;
+        }
+        else if (income <= 2000000) {
+            tax = 130000 + (income - 800000) * 0.30;
+        }
+        else if (income <= 8000000) {
+            tax = 490000 + (income - 2000000) * 0.32;
+        }
+        else {
+            tax = 2410000 + (income - 8000000) * 0.35;
+        }
+
+        document.getElementById("taxResult").innerHTML =
+            "Taxable Income: ₱" + income.toLocaleString("en-PH", {minimumFractionDigits: 2, maximumFractionDigits: 2}) +
+            "<br>Income Tax: ₱" + tax.toLocaleString("en-PH", {minimumFractionDigits: 2, maximumFractionDigits: 2});
     }
 
-    document.getElementById("conversionResult").innerHTML =
-        "Result: " + result;
-}
 
+    function calculateFactorial() {
+        let n = Number(document.getElementById("factorialNumber").value);
 
+        if (document.getElementById("factorialNumber").value === "" ||
+            !Number.isInteger(n) || n < 0) {
+            document.getElementById("factorialResult").innerHTML =
+                "Please enter a non-negative whole number.";
+            return;
+        }
 
-function calculateTax() {
+        let factorial = 1;
+        let i = 1;
 
-    let income = Number(document.getElementById("income").value);
+        while (i <= n) {
+            factorial = factorial * i;
+            i++;
+        }
 
-    if (income < 0 || document.getElementById("income").value === "") {
-        alert("Enter a valid income.");
-        return;
+        document.getElementById("factorialResult").innerHTML =
+            n + "! = " + factorial;
     }
 
-    let tax = 0;
+    function calculateSum() {
+        let n = Number(document.getElementById("sumNumber").value);
 
-    if (income <= 250000) {
-        tax = 0;
+        if (document.getElementById("sumNumber").value === "" ||
+            !Number.isInteger(n) || n < 1) {
+            document.getElementById("sumResult").innerHTML =
+                "Please enter a positive whole number.";
+            return;
+        }
+
+        let sum = 0;
+        let i = 1;
+
+        do {
+            sum = sum + i;
+            i++;
+        } while (i <= n);
+
+        document.getElementById("sumResult").innerHTML =
+            "Sum of first " + n + " natural numbers = " + sum;
     }
 
-    else if (income <= 400000) {
-        tax = (income - 250000) * 0.20;
+
+    function calculateAverage() {
+        let n = Number(document.getElementById("averageNumber").value);
+
+        if (document.getElementById("averageNumber").value === "" ||
+            !Number.isInteger(n) || n < 1) {
+            document.getElementById("averageResult").innerHTML =
+                "Please enter a positive whole number.";
+            return;
+        }
+
+        let sum = 0;
+
+        for (let i = 1; i <= n; i++) {
+            sum = sum + i;
+        }
+
+        let average = sum / n;
+
+        document.getElementById("averageResult").innerHTML =
+            "Average of first " + n + " natural numbers = " + average.toFixed(2);
     }
 
-    else if (income <= 800000) {
-        tax = 22500 + (income - 400000) * 0.25;
+
+    let employees = [];
+
+    function addEmployee() {
+        let name = document.getElementById("employeeName").value.trim();
+        let days = Number(document.getElementById("daysWorked").value);
+        let rate = Number(document.getElementById("dailyRate").value);
+        let deduction = Number(document.getElementById("deduction").value);
+
+        if (name === "" ||
+            document.getElementById("daysWorked").value === "" ||
+            document.getElementById("dailyRate").value === "" ||
+            document.getElementById("deduction").value === "" ||
+            !Number.isFinite(days) ||
+            !Number.isFinite(rate) ||
+            !Number.isFinite(deduction) ||
+            days < 0 || rate < 0 || deduction < 0) {
+
+            alert("Please enter valid employee information.");
+            return;
+        }
+
+        let grossPay = days * rate;
+        let netPay = grossPay - deduction;
+
+        if (netPay < 0) {
+            alert("Deduction cannot be greater than gross pay.");
+            return;
+        }
+
+        let employee = {
+            name: name,
+            days: days,
+            rate: rate,
+            gross: grossPay,
+            deduction: deduction,
+            net: netPay
+        };
+
+        employees.push(employee);
+
+        displayPayroll();
+
+        document.getElementById("employeeName").value = "";
+        document.getElementById("daysWorked").value = "";
+        document.getElementById("dailyRate").value = "";
+        document.getElementById("deduction").value = "";
     }
 
-    else if (income <= 2000000) {
-        tax = 102500 + (income - 800000) * 0.30;
+    function displayPayroll() {
+        let table = document.getElementById("payrollTable");
+
+        table.innerHTML = "";
+
+        if (employees.length === 0) {
+            table.innerHTML =
+                '<tr><td colspan="7">No employees added yet.</td></tr>';
+            return;
+        }
+
+        for (let i = 0; i < employees.length; i++) {
+            let employee = employees[i];
+
+            let row = table.insertRow();
+
+            row.insertCell(0).innerHTML = i + 1;
+            row.insertCell(1).innerHTML = employee.name;
+            row.insertCell(2).innerHTML = employee.days;
+            row.insertCell(3).innerHTML = "₱" + employee.rate.toFixed(2);
+            row.insertCell(4).innerHTML = "₱" + employee.gross.toFixed(2);
+            row.insertCell(5).innerHTML = "₱" + employee.deduction.toFixed(2);
+            row.insertCell(6).innerHTML = "₱" + employee.net.toFixed(2);
+        }
     }
 
-    else if (income <= 8000000) {
-        tax = 402500 + (income - 2000000) * 0.32;
+
+    function deleteEmployee() {
+        if (employees.length === 0) {
+            alert("The payroll list is empty.");
+            return;
+        }
+
+        let line = Number(prompt("Enter the employee line number to delete:"));
+
+        if (!Number.isInteger(line) || line < 1 || line > employees.length) {
+            alert("Invalid line number.");
+            return;
+        }
+
+        employees.splice(line - 1, 1);
+
+        displayPayroll();
+
+        alert("Employee successfully deleted.");
     }
-
-    else {
-        tax = 2202500 + (income - 8000000) * 0.35;
-    }
-
-    document.getElementById("taxResult").innerHTML =
-        "Income Tax: ₱" + tax.toFixed(2);
-}
-
-
-function factorial() {
-
-    let n = Number(document.getElementById("factorialNumber").value);
-
-    if (!Number.isInteger(n) || n < 0 || n > 170 ||
-        document.getElementById("factorialNumber").value === "") {
-        alert("Enter a whole number from 0 to 170.");
-        return;
-    }
-
-    let result = 1;
-    let i = 1;
-
-    while (i <= n) {
-        result = result * i;
-        i++;
-    }
-
-    document.getElementById("factorialResult").innerHTML =
-        "Factorial: " + result;
-}
-
-
-function sumNumbers() {
-
-    let n = Number(document.getElementById("sumNumber").value);
-
-    if (!Number.isInteger(n) || n < 1 || n > 100000 ||
-        document.getElementById("sumNumber").value === "") {
-        alert("Enter a positive whole number.");
-        return;
-    }
-
-    let sum = 0;
-    let i = 1;
-
-    do {
-        sum = sum + i;
-        i++;
-    }
-
-    while (i <= n);
-
-    document.getElementById("sumResult").innerHTML =
-        "Sum: " + sum;
-}
-
-
-function averageNumbers() {
-
-    let n = Number(document.getElementById("averageNumber").value);
-
-    if (!Number.isInteger(n) || n < 1 || n > 100000 ||
-        document.getElementById("averageNumber").value === "") {
-        alert("Enter a positive whole number.");
-        return;
-    }
-
-    let sum = 0;
-
-    for (let i = 1; i <= n; i++) {
-        sum = sum + i;
-    }
-
-    let average = sum / n;
-
-    document.getElementById("averageResult").innerHTML =
-        "Average: " + average.toFixed(2);
-}
-
-
-function calculatePayroll() {
-
-    let name = document.getElementById("employeeName").value;
-    let rate = Number(document.getElementById("hourlyRate").value);
-    let hours = Number(document.getElementById("hoursWorked").value);
-    let overtime = Number(document.getElementById("overtimeHours").value);
-    let deductions = Number(document.getElementById("deductions").value);
-
-    if (
-        name.trim() === "" ||
-        document.getElementById("hourlyRate").value === "" ||
-        document.getElementById("hoursWorked").value === "" ||
-        document.getElementById("overtimeHours").value === "" ||
-        document.getElementById("deductions").value === "" ||
-        [rate, hours, overtime, deductions].some(v => !Number.isFinite(v) || v < 0)
-    ) {
-        alert("Please complete all fields with valid values.");
-        return;
-    }
-
-    let regularPay = rate * hours;
-    let overtimePay = rate * 1.25 * overtime;
-
-    let grossPay = regularPay + overtimePay;
-
-    let netPay = grossPay - deductions;
-
-    document.getElementById("payrollResult").innerHTML =
-        "Employee: " + name +
-        "<br>Regular Pay: ₱" + regularPay.toFixed(2) +
-        "<br>Overtime Pay: ₱" + overtimePay.toFixed(2) +
-        "<br>Gross Pay: ₱" + grossPay.toFixed(2) +
-        "<br>Deductions: ₱" + deductions.toFixed(2) +
-        "<br>Net Pay: ₱" + netPay.toFixed(2);
-}
 
 </script>
 
